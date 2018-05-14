@@ -172,9 +172,16 @@ class QueryBuilder
      * @param $limit
      * @return $this
      */
-    public function limit($offset, $limit)
+    public function limit()
     {
-        $this->limit = " LIMIT {$offset},{$limit}";
+        $param = func_get_args();
+        if(func_num_args()==1){
+            $this->limit = " LIMIT $param[0]";
+        }else{
+            $this->limit = " LIMIT {$param[0]},{$param[1]}";
+        }
+        func_num_args();
+
         return $this;
     }
 
