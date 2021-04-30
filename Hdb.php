@@ -549,7 +549,7 @@ class PdoHelper
 
     public function __construct($configs = null)
     {
-        if (is_array($config)) {
+        if (is_array($configs)) {
             foreach ($configs as $option => $value) {
                 $this->$option = $value;
             }
